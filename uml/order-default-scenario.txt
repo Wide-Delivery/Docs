@@ -1,0 +1,14 @@
+@startuml
+!theme vibrant
+
+actor Client
+participant "Mobile App" as MA
+participant "System API" as SI
+participant "Order API" as OA
+
+MA -> SI: createOrder(...orderParams)
+SI -> OA: createOrder(...orderParams)
+OA -> SI: orderDetails(orderId, params)
+SI -> MA: showAvailableVariants
+
+@enduml
